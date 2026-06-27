@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>疗愈旅程</title>
+<style>
+:root{--bg:#faf7f4;--surface:#fff;--border:#ede8e2;--text:#3d352e;--text2:#8a7f76;--primary:#b8865b;--pb:#f8f0e8;--ab:#eef4ee;--rb:#f8edeb;--gb:#faf6ea;--f:-apple-system,PingFang SC,Microsoft YaHei,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--f);background:var(--bg);color:var(--text);font-size:14px;line-height:1.6}
+.hd{background:linear-gradient(135deg,var(--surface),var(--pb));border-bottom:1px solid var(--border);padding:14px 16px;text-align:center;position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:center;gap:8px}
+.hd h1{font-size:18px;color:var(--primary);font-weight:700;letter-spacing:1px}.hd span{font-size:12px;color:var(--text2)}
+.mn{max-width:600px;margin:0 auto;padding:16px 14px 50px}
+.btn{display:inline-flex;align-items:center;gap:4px;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;border:0;font-family:var(--f)}.btn.bp{background:var(--primary);color:#fff;transition:all .2s ease}.btn.bo{background:0 0;border:1px solid var(--border);color:var(--text2);transition:all .2s ease}.btn.bs{padding:6px 14px;font-size:12px}
+.bt{text-align:center;margin-bottom:18px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.cd{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.ct{font-weight:600;font-size:15px}.ovd{font-size:13px;line-height:1.8}.ovd b{color:var(--primary)}
+.cw{display:flex;justify-content:center;margin:6px 0 10px}
+.ll{display:flex;gap:10px;margin-bottom:14px}.lc{flex:1;padding:12px;border-radius:10px;text-align:center}
+.lc1{background:var(--ab)}.lc2{background:var(--rb)}.lct{font-size:11px;color:var(--text2)}.lcn{font-size:20px;font-weight:700;color:var(--primary)}.lcs{font-size:11px;color:var(--text2)}
+.stt{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.stt h2{font-size:15px;font-weight:600}
+.tl{display:grid;gap:10px}.ti{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;cursor:pointer;transition:all .2s ease}.ti:hover{background:var(--pb);box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.tih{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}.tid{font-size:12px;color:var(--text2)}.tis{font-size:17px;font-weight:700;color:var(--primary)}
+.til{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.5}
+.tidm{display:inline-block;padding:1px 8px;border-radius:6px;font-size:11px;font-weight:500;background:var(--pb);color:var(--primary)}
+.tr{background:#f0eaf6;border:1px solid #e0d4ed;border-radius:10px;padding:12px;margin-bottom:10px;cursor:pointer;transition:all .2s ease}
+.tr:hover{background:#e8dcf2;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.lv{display:flex;flex-wrap:wrap;gap:4px 10px;justify-content:center;margin-bottom:4px}.lvi{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text2)}.lvdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.mol{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:100;align-items:center;justify-content:center}.mol.s{display:flex}
+.md{background:var(--surface);border-radius:12px;padding:20px;width:420px;max-width:90vw;max-height:90vh;overflow-y:auto}
+.mt{font-size:16px;font-weight:600;margin-bottom:14px;color:var(--primary)}.gp{margin-bottom:12px}
+.lb{display:block;font-size:12px;font-weight:500;margin-bottom:3px;color:var(--text2)}
+.ip,.ta{width:100%;padding:8px 11px;border:1px solid var(--border);border-radius:7px;font-size:14px;font-family:var(--f);background:var(--surface);color:var(--text)}
+.ip:focus,.ta:focus{outline:0;border-color:var(--primary)}.ta{min-height:55px;resize:vertical}
+.ma{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+.scg{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}.sl{width:100%;padding:8px 11px;border:1px solid var(--border);border-radius:7px;font-size:14px;font-family:var(--f)}.sl:focus{outline:0;border-color:var(--primary)}
+.scb{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;cursor:pointer;color:var(--text2);background:var(--surface)}.scb.sel{background:var(--primary);color:#fff;border-color:var(--primary)}
+.dcg{display:flex;flex-wrap:wrap;gap:4px}.dcb{padding:5px 11px;border-radius:6px;font-size:12px;cursor:pointer;border:1px solid var(--border);color:var(--text2);background:var(--surface)}.dcb.sel{color:#fff;border-color:var(--primary)}
+.fw{display:flex;align-items:center;margin:6px 0;gap:4px}.fwl{font-size:12px;color:var(--text2);min-width:48px;text-align:right}
+.fls{width:24px;height:24px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;cursor:pointer;color:var(--text2);background:var(--surface)}.fls.sel{background:var(--primary);color:#fff;border-color:var(--primary)}
+.ctag{display:inline-block;padding:1px 8px;border-radius:6px;font-size:11px;font-weight:500;background:#f0eaf6;color:#9b7eb5}
+.ctag2{background:var(--rb);color:#c4837a}
+</style>
+<body>
+<div class=hd><h1>✦ 疗愈旅程</h1><span>记录每一次成长</span></div>
+<div class=mn id=app></div>
+<script>
+var DC=["自我认知与价值感","情绪觉察与管理","身体联结与关怀","内在对话与边界","需求满足与人生状态","自我关爱与支持","内在自信与勇气"];
+var FC=["自我关系","亲密关系","家庭关系","事业发展","财务状况","社交朋友","身体健康","精神成长"];
+var CC=["#b8865b","#c4837a","#8a7530","#7a9e7e","#6b8fa3","#9b7eb5","#d4946a","#4a7a5a"];
+var _ls="hz_hl";var diag={n:"",d:"",i:"",f:[5,5,5,5,5,5,5,5],f2:null,b:["","","","","","","","","",""],a:""};var s=[];var r=[];var ed=-1;var er=-1;
+function ld(){try{var d=JSON.parse(localStorage.getItem(_ls));if(d){if(d.d!==undefined){diag=d;s=d.s||[];r=d.r||[]}else{s=d}}}catch(e){}}
+function sv(){try{var d={n:diag.n,d:diag.d,i:diag.i,f:diag.f,f2:diag.f2,b:diag.b,a:diag.a,s:s,r:r};localStorage.setItem(_ls,JSON.stringify(d))}catch(e){}}
+function cl(){var e=document.getElementById("mol");if(e){e.remove()}}
+function rn(){var a=document.getElementById("app");var h="";
+ h+='<div class=bt><button class="btn bp" onclick=ds()>✎ 起点</button><button class="btn bo" onclick=op()>+ 疗愈</button> <button class="btn bp bs" onclick=sharePG()>🔗 分享</button>';
+ 
+ h+="</div>";
+ h+='<div class=cd><div class=ch><span class=ct>✦ 你的疗愈之旅</span></div><div class=ovd>';
+ if(diag.d||diag.i){h+="<b>开始：</b>"+(diag.d||"-")+"<br><b>议题：</b>"+(diag.i||"-")+"<br>"}if(diag.n){h+="<b>来访：</b>"+diag.n+"<br>"}if(diag.a){h+="<b>备注：</b>"+diag.a+"<br>"}
+ h+="</div></div>";
+ if(diag.f&&diag.f.some(function(v){return v>0})){
+  h+='<div class=cd><div class=ch><span class=ct>✦ 生命之花'+(diag.f2?' <span style=font-size:12px;font-weight:400;color:var(--text2)>(基线 vs 复测)</span>':'')+'</span></div><div class=cw><canvas id=flower width=260 height=280></canvas></div>';
+  h+='<div class=lv>';for(var j=0;j<FC.length;j++){h+='<div class=lvi><span class=lvdot style=background:'+CC[j]+"></span>"+FC[j]+" "+diag.f[j]+(diag.f2?"→"+diag.f2[j]:"")+"</div>"}if(diag.f&&!diag.f2){h+='<div style=text-align:center;margin-top:4px><button id=rtBtn class="btn bs bo" data-rt="">🌸 复测生命之花</button></div>'}else if(diag.f2){h+='<div style=text-align:center;margin-top:4px><button class="btn bs bo" data-rt="">🌸 更新复测</button></div>'}else{h+='<div style=text-align:center;margin-top:4px><button id=rtBtn class="btn bs bo" data-rt="">🌸 复测生命之花</button></div>'}h+="</div></div>"
+ }
+ var hb=diag.b.some(function(v){return v!=""});
+ if(hb){h+='<div class=cd><div class=ch><span class=ct>✦ 核心信念</span></div><div class=ovd>';for(var j=0;j<10;j++){if(diag.b[j]){h+="<div>• "+diag.b[j]+"</div>"}}h+="</div></div>"}
+ if(s.length>0){
+  var scs=s.map(function(x){return x.s});if(scs.length>1){
+   h+='<div class=cd><div class=ch><span class=ct>✦ 感受变化</span></div><div class=cw><canvas id=cht width=600 height=160></canvas></div>';
+   var la=scs[scs.length-1];var fi=scs[0];h+='<div class=ll><div class="lc lc1"><div class=lct>第一次</div><div class=lcn>'+fi+'<span style=font-size:12px;color:var(--text2)>/10</span></div><div class=lcs>'+s[0].d+"</div></div>";
+   h+='<div class="lc lc2"><div class=lct>最近一次</div><div class=lcn>'+la+'<span style=font-size:12px;color:var(--text2)>/10</span></div><div class=lcs>'+s[s.length-1].d+"</div></div></div>"}
+  h+='<div style=text-align:right;margin-bottom:6px><button class="btn bs bo" onclick=rv()>+ 阶段复盘</button></div><div class=stt><h2>旅程记录 <span style=font-size:12px;font-weight:400;color:var(--text2)>(点击可编辑)</span></h2><span style=font-size:12px;color:var(--text2)>共 '+s.length+" 次</span></div><div class=tl>";
+  for(var i=s.length-1;i>=0;i--){var x=s[i];h+='<div class=ti data-si='+i+'><div class=tih><span class=tidm>'+DC[x.di]+"</span><span class=tis>"+x.s+'<span style=font-size:12px;font-weight:400;color:var(--text2)>/10</span></span></div><div class=tid>第'+(i+1)+'次 · '+x.d+"</div>";if(x.b){h+='<div class=til>信念：'+x.b+"</div>"}if(x.i){h+='<div class=til>'+x.i+"</div>"}h+="</div>"}
+  h+="</div>"}else{h+='<div class=cd><div style=text-align:center;padding:20px;color:var(--text2)>还没有记录</div></div>'}
+ if(r.length>0){h+='<div class=stt style=margin-top:12px><h2>阶段复盘</h2></div><div class=tl>';
+  for(var i=r.length-1;i>=0;i--){var x=r[i];h+='<div class=tr data-ri='+i+'><div class=tih><span class=ctag'+(x.t.includes("终")?" ctag2":"")+">"+x.t+"</span><span style=font-size:12px;color:var(--text2)>"+x.d+"</span></div>";h+='<div class=til style=margin-top:4px><b>总体感受：</b>'+x.st+'</div>';if(x.ch){h+='<div class=til><b>变化：</b>'+x.ch+'</div>'}if(x.nx){h+='<div class=til><b>下一步：</b>'+x.nx+'</div>'}h+="</div>"}
+  h+="</div>"}
+ a.innerHTML=h;var rtb=document.getElementById('rtBtn');if(rtb){rtb.addEventListener('click',function(){rt()})}if(diag.f&&diag.f.some(function(v){return v>0})){drwFlower()}if(s.length>1){drwChart(scs)}
+}
+function drwFlower(){var cv=document.getElementById("flower");if(!cv)return;var cx=cv.getContext("2d");var r=95,xc=130,yc=150;cx.clearRect(0,0,260,280);
+ cx.strokeStyle="#ede8e2";for(var g=1;g<=5;g++){var gr=r*g/5;cx.beginPath();for(var i=0;i<=8;i++){var a2=Math.PI/2-Math.PI*2*(i%8)/8;var x=xc+Math.cos(a2)*gr,y=yc-Math.sin(a2)*gr;if(i===0)cx.moveTo(x,y);else cx.lineTo(x,y)}cx.stroke()}
+ if(diag.f2){cx.beginPath();for(var i=0;i<=8;i++){var idx=i%8;var v=diag.f2[idx]/10;var a2=Math.PI/2-Math.PI*2*idx/8;var x=xc+Math.cos(a2)*r*v,y=yc-Math.sin(a2)*r*v;if(i===0)cx.moveTo(x,y);else cx.lineTo(x,y)}cx.fillStyle="rgba(184,134,91,0.08)";cx.fill();cx.strokeStyle="#b8865b";cx.lineWidth=3;cx.setLineDash([]);cx.stroke();for(var i=0;i<8;i++){var v=diag.f2[i]/10;var a2=Math.PI/2-Math.PI*2*i/8;var x=xc+Math.cos(a2)*r*v,y=yc-Math.sin(a2)*r*v;cx.beginPath();cx.arc(x,y,5,0,Math.PI*2);cx.fillStyle=CC[i];cx.fill()}}
+ cx.beginPath();for(var i=0;i<=8;i++){var idx=i%8;var v=diag.f[idx]/10;var a2=Math.PI/2-Math.PI*2*idx/8;var x=xc+Math.cos(a2)*r*v,y=yc-Math.sin(a2)*r*v;if(i===0)cx.moveTo(x,y);else cx.lineTo(x,y)}cx.fillStyle="rgba(150,150,150,0.1)";cx.fill();cx.strokeStyle="#c9a88e";cx.lineWidth=2;cx.setLineDash([4,4]);cx.stroke();
+ for(var i=0;i<8;i++){var v=diag.f[i]/10;var a2=Math.PI/2-Math.PI*2*i/8;var x=xc+Math.cos(a2)*r*v,y=yc-Math.sin(a2)*r*v;cx.beginPath();cx.arc(x,y,4,0,Math.PI*2);cx.fillStyle="#c9a88e";cx.fill()}
+ // Legend
+ var legY=2;cx.font="10px sans-serif";cx.fillStyle="#c9a88e";cx.textAlign="left";
+ if(diag.f2){cx.fillStyle="#b8865b";cx.fillRect(20,legY,12,3);cx.fillStyle="#c9a88e";cx.fillText(" 复测",34,legY+4);cx.fillStyle="#c9a88e";cx.fillRect(20,legY+12,12,3);cx.setLineDash([4,4]);cx.strokeStyle="#c9a88e";cx.strokeRect(20,legY+12,12,3);cx.fillStyle="#c9a88e";cx.fillText(" 基线",34,legY+16)}
+ cx.setLineDash([]);cx.font="10px sans-serif";cx.fillStyle="#8a7f76";cx.textAlign="center";cx.textBaseline="middle";
+ for(var i=0;i<8;i++){var a2=Math.PI/2-Math.PI*2*i/8;var lr=r+18;var x=xc+Math.cos(a2)*lr,y=yc-Math.sin(a2)*lr;cx.textAlign=x<xc-5?"right":x>xc+5?"left":"center";cx.fillText(FC[i].substring(0,4),x,y)}
+}
+function drwChart(scs){var cv=document.getElementById("cht");if(!cv)return;var cx=cv.getContext("2d");var w=cv.width,h=cv.height;cx.clearRect(0,0,w,h);var n=scs.length;if(n<2)return;
+ var pad={l:25,r:10,t:12,b:22},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b;cx.strokeStyle="#ede8e2";
+ for(var i=0;i<=10;i++){var y2=pad.t+ch*(1-i/10);cx.beginPath();cx.moveTo(pad.l,y2);cx.lineTo(w-pad.r,y2);cx.stroke()}
+ cx.strokeStyle="#b8865b";cx.lineWidth=2.5;cx.beginPath();for(var i=0;i<n;i++){var x=pad.l+cw*i/(n-1);var y=pad.t+ch*(1-scs[i]/10);if(i===0)cx.moveTo(x,y);else cx.lineTo(x,y)}cx.stroke();
+ cx.fillStyle="#b8865b";for(var i=0;i<n;i++){var x=pad.l+cw*i/(n-1);var y=pad.t+ch*(1-scs[i]/10);cx.beginPath();cx.arc(x,y,4,0,Math.PI*2);cx.fill()}
+ cx.fillStyle="#8a7f76";cx.font="10px sans-serif";cx.textAlign="center";for(var i=0;i<n;i++){var x=pad.l+cw*i/(n-1);if(n<12||i===0||i===n-1||i%2===0){cx.fillText(i+1,x,h-4)}}cx.fillText("次",w-10,h-4)
+}
+function ds(){var h="<div class=mt>编辑起点信息</div>";h+='<div class=gp><label class=lb>名字</label><input class=ip id=dn value="'+(diag.n||"")+'"></div>';
+ h+='<div class=gp><label class=lb>开始时间</label><input class=ip id=dd type=date value="'+(diag.d||"")+'"></div>';
+ h+='<div class=gp><label class=lb>核心议题</label><textarea class=ta id=di rows=2>'+(diag.i||"")+'></textarea></div>';
+ h+='<div class=gp><label class=lb>生命之花（基线）</label>';for(var j=0;j<FC.length;j++){h+='<div class=fw><span class=fwl>'+FC[j]+'</span><div style=display:flex;gap:3px;flex-wrap:wrap;flex:1>';for(var k=0;k<=10;k++){h+='<div class="fls'+(k===diag.f[j]?' sel':'')+'" data-fi='+j+' data-fv='+k+'>'+k+'</div>'}h+='</div></div>'}
+ h+='</div><div class=gp><label class=lb>核心信念</label>';for(var j=0;j<10;j++){h+='<div style=display:flex;align-items:center;gap:4px;margin:3px 0><span style=font-size:12px;color:var(--text2);width:20px>'+(j+1)+'.</span><input class=ip id=bb'+j+' value="'+(diag.b[j]||"")+'" style=flex:1></div>'}
+ h+='<div class=gp><label class=lb>备注</label><input class=ip id=da value="'+(diag.a||"")+'"></div>';
+ h+='<div class=ma><button class="btn bo" onclick=cl()>取消</button><button class="btn bp" onclick=dsv()>保存</button></div>';
+ var mol=document.createElement("div");mol.id="mol";mol.className="mol s";mol.innerHTML="<div class=md>"+h+"</div>";document.body.appendChild(mol)
+}
+function dsv(){diag.n=document.getElementById("dn").value;diag.d=document.getElementById("dd").value;diag.i=document.getElementById("di").value.trim();for(var j=0;j<10;j++){diag.b[j]=document.getElementById("bb"+j).value}diag.a=document.getElementById("da").value;sv();cl();rn()}
+function rt(){var h="<div class=mt>复测生命之花</div>";
+ h+='<div style=font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.7>以下是基线分数，请根据<b>现在的状态</b>重新选择：</div>';
+ for(var j=0;j<FC.length;j++){h+='<div style=display:flex;align-items:center;margin:6px 0;gap:4px><span style=font-size:12px;color:var(--text2);min-width:48px;text-align:right>'+FC[j]+'</span><span style=font-size:11px;color:#b5aba0;min-width:20px>'+diag.f[j]+'</span><div style=display:flex;gap:2px;flex-wrap:wrap>';for(var k=0;k<=10;k++){h+='<div class="fls'+(k===(diag.f2?diag.f2[j]:diag.f[j])?' sel':'')+'" data-fi='+j+' data-fv='+k+'>'+k+'</div>'}h+='</div></div>'}
+ h+='<div class=ma><button class="btn bo" onclick=cl()>取消</button><button class="btn bp" onclick=rtv()>保存</button></div>';
+ var mol=document.createElement("div");mol.id="mol";mol.className="mol s";mol.innerHTML="<div class=md>"+h+"</div>";document.body.appendChild(mol)
+}
+function rtv(){diag.f2=diag.f2||[];for(var j=0;j<FC.length;j++){var e=document.querySelector('[data-fi="'+j+'"].sel');if(e){diag.f2[j]=parseInt(e.dataset.fv)}}sv();cl();rn()}
+function op(i){if(i===undefined){i=-1}ed=i;var x=i>=0?s[i]:{d:"",s:5,di:-1,b:"",i:""};
+ var h="<div class=mt>"+(i>=0?"编辑第"+(i+1)+"次":"记录本次疗愈")+"</div>";h+='<div class=gp><label class=lb>日期</label><input class=ip id=fd type=date value="'+(x.d||new Date().toISOString().split("T")[0])+'"></div>';
+ h+='<div class=gp><label class=lb>对应维度</label><div class=dcg id=fdm>';for(var j=0;j<DC.length;j++){h+='<div class="dcb'+(j===x.di?' sel':'')+'" data-di='+j+'>'+DC[j]+"</div>"}h+='</div></div>';
+ h+='<div class=gp><label class=lb>感受（1-10）</label><div class=scg id=fs>';for(var j=1;j<=10;j++){h+='<div class="scb'+(j===x.s?' sel':'')+'" data-s='+j+'>'+j+"</div>"}h+='</div></div>';
+ h+='<div class=gp><label class=lb>处理的信念</label><input class=ip id=fb value="'+(x.b||"")+'" placeholder="例如：我不够好"></div>';
+ h+='<div class=gp><label class=lb>今天的发现</label><input class=ip id=fi value="'+(x.i||"")+'" placeholder="想说点什么"></div>';
+ h+='<div class=ma><button class="btn bo" onclick=cl()>取消</button><button class="btn bp" onclick=sa()>保存</button></div>';
+ var mol=document.createElement("div");mol.id="mol";mol.className="mol s";mol.innerHTML="<div class=md>"+h+"</div>";document.body.appendChild(mol)
+}
+function sa(){var fd=document.getElementById("fd");var scb=document.querySelector("#fs .sel");var dcb=document.querySelector("#fdm .sel");if(!scb||!dcb){alert("请选择感受分和对应维度");return}
+ var nd={d:fd.value,s:parseInt(scb.dataset.s),di:parseInt(dcb.dataset.di),b:document.getElementById("fb").value.trim(),i:document.getElementById("fi").value.trim()};if(ed>=0){s[ed]=nd}else{s.push(nd)}sv();cl();rn()}
+function rv(i){if(i===undefined){i=-1}er=i;var x=i>=0?r[i]:{d:"",t:"中期复盘",st:"",ch:"",nx:""};
+ var h="<div class=mt>"+(i>=0?"编辑复盘":"阶段复盘")+"</div>";h+='<div class=gp><label class=lb>类型</label><select class=sl id=rt><option value="中期复盘"'+(x.t.includes("中")?' selected':'')+'>中期复盘</option><option value="终期复盘"'+(x.t.includes("终")?' selected':'')+'>终期复盘</option></select></div>';
+ h+='<div class=gp><label class=lb>日期</label><input class=ip id=rd type=date value="'+(x.d||new Date().toISOString().split("T")[0])+'"></div>';
+ h+='<div class=gp><label class=lb>总体感受</label><textarea class=ta id=rs rows=2>'+(x.st||"")+'></textarea></div>';
+ h+='<div class=gp><label class=lb>发现的变化</label><textarea class=ta id=rc rows=2>'+(x.ch||"")+'></textarea></div>';
+ h+='<div class=gp><label class=lb>下一步方向 <span style=color:#b5aba0>(可选)</span></label><textarea class=ta id=rn rows=2>'+(x.nx||"")+'></textarea></div>';
+ h+='<div class=ma><button class="btn bo" onclick=cl()>取消</button><button class="btn bp" onclick=rsv()>保存</button></div>';
+ var mol=document.createElement("div");mol.id="mol";mol.className="mol s";mol.innerHTML="<div class=md>"+h+"</div>";document.body.appendChild(mol)
+}
+function rsv(){var x={d:document.getElementById("rd").value,t:document.getElementById("rt").value,st:document.getElementById("rs").value.trim(),ch:document.getElementById("rc").value.trim(),nx:document.getElementById("rn").value.trim()};if(er>=0){r[er]=x}else{r.push(x)}sv();cl();rn()}
+document.addEventListener("click",function(e){
+ var t=e.target;if(t.getAttribute("data-rt")!=null){rt();return}if(t.classList.contains("fls")){var fi=parseInt(t.dataset.fi),fv=parseInt(t.dataset.fv);t.parentElement.querySelectorAll(".fls").forEach(function(x){x.classList.remove("sel")});t.classList.add("sel");return}
+ if(t.classList.contains("scb")){document.querySelectorAll("#fs .scb").forEach(function(x){x.classList.remove("sel")});t.classList.add("sel");return}
+ if(t.classList.contains("dcb")){document.querySelectorAll("#fdm .dcb").forEach(function(x){x.classList.remove("sel")});t.classList.add("sel");return}
+ if(t.classList.contains("ti")){var si=t.dataset.si;if(si!==undefined&&si!==""){op(parseInt(si))}return}
+ if(t.closest(".ti")){var si2=t.closest(".ti").dataset.si;if(si2!==undefined&&si2!==""){op(parseInt(si2))}return}
+ if(t.classList.contains("tr")){var ri=t.dataset.ri;if(ri!==undefined&&ri!==""){rv(parseInt(ri))}return}
+ if(t.closest(".tr")){var ri2=t.closest(".tr").dataset.ri;if(ri2!==undefined&&ri2!==""){rv(parseInt(ri2))}}
+});
+var _m=location.search.match(/[?&]d=([^&]+)/);if(_m){try{var _j=decodeURIComponent(_m[1]);localStorage.setItem('hz_hl',_j);history.replaceState({},'','.')}catch(_e){}}ld();rn();
+function imp(){var p=prompt('请粘贴个案发来的数据');if(p&&p.length>50){try{var d=JSON.parse(p);if(d.d||d.s){localStorage.setItem('hz_hl',p);alert('数据导入成功！请刷新页面');location.reload()}else{alert('数据格式不对')}}catch(e){alert('数据格式不对')}}else{alert('没有输入数据')}}function sharePG(){try{var _d=localStorage.getItem('hz_hl');if(!_d||_d.length<10){alert('请先编辑诊断信息');return}var _u=location.href.split('?')[0].split('#')[0]+'?d='+encodeURIComponent(JSON.stringify(JSON.parse(_d)));navigator.clipboard.writeText(_u).then(function(){alert('个案链接已复制！发送给个案即可')}).catch(function(){var _t=document.createElement('textarea');_t.value=_u;document.body.appendChild(_t);_t.select();document.execCommand('copy');document.body.removeChild(_t);alert('链接已复制！')})}catch(_e){alert('生成失败')}}function exp(){try{var d=JSON.stringify(JSON.parse(localStorage.getItem('hz_hl')));navigator.clipboard.writeText(d).then(function(){alert('数据已复制，发送给个案即可导入')}).catch(function(){var ta=document.createElement('textarea');ta.value=d;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);alert('数据已复制！')})}catch(e){alert('没有数据可以导出')}}</script>
+</body>
+</html>
