@@ -43,7 +43,7 @@ var CC=["#b8865b","#c4837a","#8a7530","#7a9e7e","#6b8fa3","#9b7eb5","#d4946a","#
 var _ls="hz_hl";var diag={n:"",d:"",i:"",f:[5,5,5,5,5,5,5,5],f2:null,b:["","","","","","","","","",""],a:""};var s=[];var r=[];var ed=-1;var er=-1;
 var mgr={c:null,cs:{}};var GIST_TOKEN=localStorage.getItem('hz_token')||'';var GIST_ID=localStorage.getItem('hz_gid')||'';
 function ld(){try{var d=JSON.parse(localStorage.getItem(_ls));if(d){if(d.d!==undefined){diag=d;s=d.s||[];r=d.r||[]}else{s=d}}}catch(e){}}
-function sv(){try{var d={n:diag.n,d:diag.d,i:diag.i,f:diag.f,f2:diag.f2,b:diag.b,a:diag.a,s:s,r:r};localStorage.setItem(_ls,JSON.stringify(d));if(mgr.c&&mgr.cs[mgr.c]){mgr.cs[mgr.c].d=d;try{localStorage.setItem('hz_mg',JSON.stringify(mgr))}catch(e){}}}catch(e){}}
+function sv(){try{var d={n:diag.n,d:diag.d,i:diag.i,f:diag.f,f2:diag.f2,b:diag.b,a:diag.a,s:s,r:r};localStorage.setItem(_ls,JSON.stringify(d));if(mgr.c&&mgr.cs[mgr.c]){mgr.cs[mgr.c].d=d;try{localStorage.setItem('hz_mg',JSON.stringify(mgr))}catch(e){}}try{syncGist()}catch(e2){}}catch(e){}}
 function cl(){var e=document.getElementById("mol");if(e){e.remove()}}
 function rn(){var a=document.getElementById("app");var h="";h+='<div class=bt><button class="btn bp" onclick=ds()>✎ 起点</button><button class="btn bo" onclick=op()>+ 疗愈</button> <button class="btn bp bs" onclick=sharePG()>🔗 分享</button> <button class="btn bs bo" onclick=rst()>🔄 重置</button></div>';
 h+='<div class=cd><div class=ch><span class=ct>✦ 你的疗愈之旅</span></div><div class=ovd>';if(diag.d||diag.i){h+="<b>开始：</b>"+(diag.d||"-")+"<br><b>议题：</b>"+(diag.i||"-")+"<br>"}if(diag.n){h+="<b>来访：</b>"+diag.n+"<br>"}if(diag.a){h+="<b>备注：</b>"+diag.a+"<br>"}h+="</div></div>";
@@ -116,7 +116,7 @@ if(t.classList.contains("scb")){document.querySelectorAll("#fs .scb").forEach(fu
 if(t.classList.contains("dcb")){document.querySelectorAll("#fdm .dcb").forEach(function(x){x.classList.remove("sel")});t.classList.add("sel");return}
 if(t.classList.contains("ti")){var si=t.dataset.si;if(si!==undefined&&si!==""){op(parseInt(si))}return}if(t.closest(".ti")){var si2=t.closest(".ti").dataset.si;if(si2!==undefined&&si2!==""){op(parseInt(si2))}return}
 if(t.classList.contains("tr")){var ri=t.dataset.ri;if(ri!==undefined&&ri!==""){rv(parseInt(ri))}return}if(t.closest(".tr")){var ri2=t.closest(".tr").dataset.ri;if(ri2!==undefined&&ri2!==""){rv(parseInt(ri2))}}});
-ld();initMg();updateCl();rn();
-</script>
+ld();initMg();updateCl();rn();startSync();
+function startSync(){if(!GIST_ID||!GIST_TOKEN)return;function poll(){var x=new XMLHttpRequest();x.open("GET","https://api.github.com/gists/"+GIST_ID);x.setRequestHeader("Authorization","token "+GIST_TOKEN);x.onload=function(){if(x.status===200){try{var r=JSON.parse(x.responseText);var c=r.files['jd.json'].content;var old=localStorage.getItem('hz_hl');if(c&&c!==old){localStorage.setItem('hz_hl',c);ld();rn()}}catch(e){}}};x.send()}setInterval(poll,30000)}</script>
 </body>
 </html>
